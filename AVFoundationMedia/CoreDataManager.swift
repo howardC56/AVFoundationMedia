@@ -23,15 +23,13 @@ class CoreDataManager {
     let mediaObject = CDMediaObject(entity: CDMediaObject.entity(), insertInto: context)
     if let mediaURL = mediaURL {
       do {
-        let videoData = try Data(contentsOf: mediaURL)
-        mediaObject.videoData = videoData
+        mediaObject.videoData = try Data(contentsOf: mediaURL)
       } catch {
         print("failed to convert url to data with error: \(error)")
       }
     }
     mediaObject.createdDate = Date()
     mediaObject.imageData = imageData
-    mediaObject.mediaURL = mediaURL
     mediaObject.id = UUID().uuidString
     do {
       try context.save()

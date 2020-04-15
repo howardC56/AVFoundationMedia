@@ -29,8 +29,8 @@ class MediaFeedViewController: UIViewController {
     }
     
     private func playRandomVideo(in view: UIView) {
-        let videoURLs = mediaObjects.compactMap { $0.videoURL }
-        if let videoURL = videoURLs.randomElement() {
+        let videoURLs = mediaObjects.compactMap { $0.videoData }
+        if let videoObject = videoURLs.randomElement(), let videoURL = videoObject.convertToURL() {
             let player = AVPlayer(url: videoURL)
             let playerLayer = AVPlayerLayer(player: player)
             playerLayer.frame = view.bounds
@@ -41,7 +41,7 @@ class MediaFeedViewController: UIViewController {
         }
     }
     
-    private var mediaObjects = [MediaObject]() {
+    private var mediaObjects = [CDMediaObject]() {
         didSet {
             collectionView.reloadData()
         }
@@ -61,8 +61,13 @@ class MediaFeedViewController: UIViewController {
         if !UIImagePickerController.isSourceTypeAvailable(.camera) {
                    videoButton.isEnabled = false
                }
+        fetchMediaObjects()
     }
 
+    private func fetchMediaObjects() {
+        mediaObjects = CoreDataManager.shared.fetchMediaObjects()
+    }
+    
     private func configureCollectionView() {
         collectionView.delegate = self
         collectionView.dataSource = self
@@ -106,7 +111,7 @@ extension MediaFeedViewController: UICollectionViewDataSource, UICollectionViewD
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let playerViewController = AVPlayerViewController()
         let mediaObject = mediaObjects[indexPath.row]
-        guard let mediaURL = mediaObject.videoURL else { return }
+        guard let mediaURL = mediaObject.videoData?.convertToURL() else { return }
         let player = AVPlayer(url: mediaURL)
         playerViewController.player = player
         present(playerViewController, animated: true) {
@@ -121,13 +126,15 @@ extension MediaFeedViewController: UIImagePickerControllerDelegate, UINavigation
         switch mediaType {
         case "public.image":
             if let originalImage = info[UIImagePickerController.InfoKey.originalImage] as? UIImage, let imageData = originalImage.jpegData(compressionQuality: 1.0) {
-                let mediaObject = MediaObject(imageData: imageData, videoURL: nil, caption: nil)
+               // let mediaObject = CDMediaObject(imageData: imageData, videoURL: nil, caption: nil)
+                let mediaObject = CoreDataManager.shared.createMediaObject(mediaURL: nil, imageData: imageData)
                 mediaObjects.append(mediaObject)
             }
             
         case  "public.movie":
-            if let mediaURL = info[UIImagePickerController.InfoKey.mediaURL] as? URL {
-                let mediaObject = MediaObject(imageData: nil, videoURL: mediaURL, caption: nil)
+            if let mediaURL = info[UIImagePickerController.InfoKey.mediaURL] as? URL,
+                let image = mediaURL.videoPreviewThumbnail(), let imageData = image.jpegData(compressionQuality: 1.0) {
+                let mediaObject = CoreDataManager.shared.createMediaObject(mediaURL: mediaURL, imageData: imageData)
                 mediaObjects.append(mediaObject)
             }
         default:

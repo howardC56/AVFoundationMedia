@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Bucket
+   uuid = "3A355398-C85B-41CE-8C74-CE609F4E27AE"
+   type = "1"
+   version = "2.0">
+   <Breakpoints>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "510E3FE3-D081-44DD-A859-C06EA30D9511"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "AVFoundationMedia/MediaFeedViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "118"
+            endingLineNumber = "118"
+            landmarkName = "collectionView(_:didSelectItemAt:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "EED8E2BC-7339-4D5E-B53E-740E6AE9B68B"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "AVFoundationMedia/MediaFeedViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "117"
+            endingLineNumber = "117"
+            landmarkName = "collectionView(_:didSelectItemAt:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "EED8E2BC-7339-4D5E-B53E-740E6AE9B68B - e1d1669db1715b01"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "AVFoundationMedia.MediaFeedViewController.collectionView(_: __C.UICollectionView, didSelectItemAt: Foundation.IndexPath) -&gt; ()"
+                  moduleName = "AVFoundationMedia"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/howardchang/Documents/AVFoundationMedia/AVFoundationMedia/MediaFeedViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "117"
+                  endingLineNumber = "117"
+                  offsetFromSymbolStart = "1231">
+               </Location>
+               <Location
+                  uuid = "EED8E2BC-7339-4D5E-B53E-740E6AE9B68B - 3f70ea71eb7ef9bf"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 () -&gt; () in AVFoundationMedia.MediaFeedViewController.collectionView(_: __C.UICollectionView, didSelectItemAt: Foundation.IndexPath) -&gt; ()"
+                  moduleName = "AVFoundationMedia"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/howardchang/Documents/AVFoundationMedia/AVFoundationMedia/MediaFeedViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "118"
+                  endingLineNumber = "118"
+                  offsetFromSymbolStart = "20">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "C78E209B-1F71-4C9E-9646-DE977FE4A948"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "AVFoundationMedia/MediaFeedViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "111"
+            endingLineNumber = "111"
+            landmarkName = "collectionView(_:didSelectItemAt:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+   </Breakpoints>
+</Bucket>
